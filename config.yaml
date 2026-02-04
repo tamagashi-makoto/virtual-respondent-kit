@@ -1,0 +1,73 @@
+# LLMプロバイダー選択 (azure_openai, openai, gemini, anthropic, groq)
+llm_provider: azure_openai
+
+# Azure OpenAI設定
+azure_openai:
+  endpoint: "put_your_endpoint"
+  api_key: "put_your_api_key"
+  api_version: "2025-04-01-preview"
+  deployment_name: "gpt-5"
+
+# OpenAI設定
+openai:
+  api_key: "put_your_api_key"
+  model: "gpt-4o"
+  base_url: null
+
+# Gemini設定
+gemini:
+  api_key: "put_your_api_key"
+  model: "gemini-2.0-flash-exp"
+
+# Anthropic設定
+anthropic:
+  api_key: "put_your_api_key"
+  model: "claude-sonnet-4-20250514"
+  max_tokens: 8192
+
+# Groq設定
+groq:
+  api_key: "put_your_api_key"
+  model: "gpt-oss-120b"
+
+# 共通モデルパラメータ
+model_params:
+  temperature: 1
+  max_completion_tokens: 400
+
+survey:
+  input_file: "data/personas_100.json"
+  output_dir: "output"
+  output_file: "survey_results.csv"
+  question: |
+    【質問】
+    あなたは現在、AIを活用した「無人コンビニ」の普及について意見を求められています。
+    あなたの年齢、職業、ITリテラシー、個人の価値観に基づいて、
+    「利用したい（賛成）」か「利用したくない（反対/慎重）」か、
+    その理由と共に具体的なエピソードを交えて答えてください。
+
+ab_test:
+  input_file: "data/personas_100.json"
+  output_file: "output/ab_test_results.csv"
+  product_context: "Latest AI Smartphone 'Neural Phone' Ad Copy"
+  plan_a: |
+    【Plan A: Emotional Approach】
+    "Make your memories more vivid."
+    Neural Phone elevates your casual daily photos
+    into professional-grade masterpieces.
+    Capture family smiles and travel landscapes with unforgettable beauty.
+  plan_b: |
+    【Plan B: Functional Approach】
+    "Industry fastest, 300% performance boost."
+    Neural Phone is equipped with the latest NPU chipset.
+    Heavy games and 4K video editing complete at unprecedented speeds.
+    48-hour battery life without charging. The strongest tool that never stops business.
+
+interview:
+  input_file: "data/personas_100.json"
+  output_file: "output/interview_results.csv"
+  max_turns: 3
+  concurrent_limit: 5
+  initial_question: |
+    最近話題の「週休3日制（給与減額なし）」について、あなたの職場の状況や個人の価値観から、
+    導入されたら利用したいですか？それとも否定的ですか？
